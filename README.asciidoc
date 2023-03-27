@@ -1,0 +1,19 @@
+= rembg demo
+
+Download `u2net.onnx` from https://disk.yandex.ru/d/HyBU9OZFUPl02w and place it to `.data` folder.
+
+Then start the server:
+
+----
+docker run --rm -it -p 8080:8080 $(docker build -q .)
+----
+
+Please, be patient and wait for `http server started on [::]:8080` message.
+
+After this, try to pass image to the service:
+
+----
+curl -X POST "http://localhost:8080/rembg" -vv --data-binary @_source_file.path.ext > _path_to_destination_file.png
+----
+
+Please, don't forget to specify specific file paths.
